@@ -3,6 +3,7 @@
 use App\Http\Middleware\CekUmur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BarangController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -101,5 +102,22 @@ Route::prefix('umur')->group(function(){
     })->name('proses');
 
 });
+
+
+// routing dengan controller.
+
+// Routing index/halaman utama.
+Route::get('barang', [BarangController::class, 'index'])->name('barang.index');
+
+// Routing create/halaman form create.
+Route::get('barang/create', [BarangController::class, 'create'])->name('barang.create');
+
+// Routing untuk memproses data (mengirim)
+Route::post('barang-post', [BarangController::class, 'store'])->name('barang.store');
+
+
+
+
+
 
 
