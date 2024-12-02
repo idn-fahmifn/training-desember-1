@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -63,10 +64,41 @@ Route::prefix('admin')->group(function(){
      * named routing 
      * URI != nama dari routing
      */
-
-
-
 });
 
+// fallback = menangani route yang belum di definisikan.
+
+Route::fallback(function(){
+    return view('404');
+});
+
+
+Route::prefix('umur')->group(function(){
+
+    // routing halaman form.
+    Route::get('cek-umur', function(){
+        return view('umur.form');
+    })->name('form');
+
+    // Routing untuk menampilkan halaman berhasil.
+    Route::get('berhasil', function(){
+        return view('umur.berhasil');
+    })->name('berhasil');
+
+    // Route untuk proses input yang dimasukan
+    Route::post('proses', function(Request $request){
+
+        // validasi data : 
+        $request->validate([
+            'umur' => 'required|integer|max:100'
+        ]);
+        // Session
+        $request->session()->put('umur', $request->umur);
+
+        return redirect()->route('berhasil');
+
+    })->name('proses');
+
+});
 
 
