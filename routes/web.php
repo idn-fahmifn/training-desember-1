@@ -27,17 +27,18 @@ Route::get('data-fahmi', function(){
 // Route dengan parameter
 // digunakan untuk membuat halaman edit atau halaman detail.
 Route::get('respon/{parameter}', function($data){
-    return 'ini adalah halaman : '.$data;
-});
+    return 'ini adalah respon : '.$data;
+})->name('respon-parameter');
 
 // menampilkan data di sebuah halaman.
 Route::get('halaman/{param}', function($data){
     return view('halaman.detail', compact('data'));
-});
+})->name('halaman-parameter');
 
 // Grouping route
 /**
  * prefix (parent atau pangkalannya).
+ * nama group
  */
 Route::prefix('admin')->group(function(){
 
@@ -46,17 +47,24 @@ Route::prefix('admin')->group(function(){
     // localhost:8000/admin/karyawan
     Route::get('karyawan', function(){ 
         return 'ini adalah halaman karyawan';
-    });
+    })->name('halaman-karyawan');
 
     // localhost:8000/admin/divisi
     Route::get('divisi', function(){
         return 'ini adalah halaman divisi';
-    });
+    })->name('halaman-divisi');
 
     // localhost:8000/admin/branch
     Route::get('branch', function(){
         return 'ini adalah halaman branch atau cabang';
-    });
+    })->name('halaman-branch');
+
+    /**
+     * named routing 
+     * URI != nama dari routing
+     */
+
+
 
 });
 
