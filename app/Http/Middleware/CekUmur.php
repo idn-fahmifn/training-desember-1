@@ -15,7 +15,6 @@ class CekUmur
      */
     public function handle(Request $request, Closure $next): Response
     {
-
         // mengambil nilai dari input (umur)
         $umur = $request->session()->get('umur');
 
