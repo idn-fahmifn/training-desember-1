@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\CekUmur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -83,7 +84,7 @@ Route::prefix('umur')->group(function(){
     // Routing untuk menampilkan halaman berhasil.
     Route::get('berhasil', function(){
         return view('umur.berhasil');
-    })->name('berhasil');
+    })->name('berhasil')->middleware(CekUmur::class);
 
     // Route untuk proses input yang dimasukan
     Route::post('proses', function(Request $request){

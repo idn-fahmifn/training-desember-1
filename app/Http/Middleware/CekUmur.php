@@ -15,6 +15,15 @@ class CekUmur
      */
     public function handle(Request $request, Closure $next): Response
     {
+
+        // mengambil nilai dari input (umur)
+        $umur = $request->session()->get('umur');
+
+        // jika lebih dari 18 tahun, maka akan dilanjutkan ke routing yang dituju.
+        if($umur <= 18){
+            return redirect()->route('form')->with('error', 'Belum cukup umur');
+        }
         return $next($request);
+
     }
 }

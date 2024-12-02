@@ -8,6 +8,12 @@
 <body>
 
     <h1>Halaman Cek Umur</h1>
+
+    <!-- jika tidak memenuhi syarat, show error -->
+    @if (session('error'))
+        <span style="color: red;">Whoops! {{session('error')}}</span>
+    @endif
+
     <form action="{{route('proses')}}" method="post">
         @csrf
         <div class="form-group">
