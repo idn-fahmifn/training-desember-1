@@ -35,3 +35,30 @@ Route::get('halaman/{param}', function($data){
     return view('halaman.detail', compact('data'));
 });
 
+// Grouping route
+/**
+ * prefix (parent atau pangkalannya).
+ */
+Route::prefix('admin')->group(function(){
+
+    // jika dipangil wajib menyertakan admin/
+
+    // localhost:8000/admin/karyawan
+    Route::get('karyawan', function(){ 
+        return 'ini adalah halaman karyawan';
+    });
+
+    // localhost:8000/admin/divisi
+    Route::get('divisi', function(){
+        return 'ini adalah halaman divisi';
+    });
+
+    // localhost:8000/admin/branch
+    Route::get('branch', function(){
+        return 'ini adalah halaman branch atau cabang';
+    });
+
+});
+
+
+
