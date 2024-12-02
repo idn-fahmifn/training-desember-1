@@ -26,7 +26,12 @@ Route::get('data-fahmi', function(){
 
 // Route dengan parameter
 // digunakan untuk membuat halaman edit atau halaman detail.
-Route::get('halaman/{parameter}', function($data){
+Route::get('respon/{parameter}', function($data){
     return 'ini adalah halaman : '.$data;
+});
+
+// menampilkan data di sebuah halaman.
+Route::get('halaman/{param}', function($data){
+    return view('halaman.detail', compact('data'));
 });
 
