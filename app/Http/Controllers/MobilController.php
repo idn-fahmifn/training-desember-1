@@ -44,7 +44,24 @@ class MobilController extends Controller
     {
         // memanggil data yang sama sesuai dengan baris yang diambil.
         $data = Mobil::find($id);
-        return $data;
+        return view('mobil.detail', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+
+        $data = Mobil::find($id); //mencari row yang akan diganti
+        $input = $request->all(); // nilai terbaru yang akan diinputkan untuk mengganti nilai lama.
+        $request->validate([
+            'nama_mobil' => 'required|string|min:4|max:15',
+            'tipe' => 'required',
+            'tahun_produksi' => 'required|min:4|max:4',
+            'jumlah_unit' => 'required|min:0'
+        ]);
+        $data->update($input);
+
+        return redirect()->route('mobil.index')->with('success', 'Data berhasil diubah');
+
     }
 
 }

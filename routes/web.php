@@ -139,6 +139,9 @@ Route::prefix('mobil')->group(function(){
     // Routing untuk mengambil data yang spesifik
     Route::get('mobil/{id}', [MobilController::class, 'detail'])->name('mobil.detail');
 
+    // Routing untuk mengubah data yang spesifik 
+    Route::put('mobil/{id}', [MobilController::class, 'update'])->name('mobil.update');
+
 });
 
 
