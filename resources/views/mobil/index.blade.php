@@ -6,7 +6,8 @@
     <title>Data Mobil</title>
 </head>
 <body>
-    <h1>List data mobil</h1>
+    <h1>Halaman data mobil</h1>
+    <a href="">Tambah Mobil Baru</a>
     <table>
         <!-- header -->
         <thead>

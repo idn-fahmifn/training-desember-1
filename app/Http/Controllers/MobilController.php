@@ -14,4 +14,10 @@ class MobilController extends Controller
         // perintah untuk mengarahkan ke halaman index di folder mobil. dan mendefinisikan variable data.
         return view('mobil.index', compact('data'));
     }
+
+    public function create()
+    {
+        return view('mobil.create');
+    }
+
 }

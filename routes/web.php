@@ -126,7 +126,13 @@ Route::resource('biodata', BioController::class);
 
 // area route mobil
 Route::prefix('mobil')->group(function(){
+
+    // untuk halaman index
     Route::get('mobil', [MobilController::class, 'index'])->name('mobil.index');
+
+    // untuk halaman create
+    Route::get('mobil/create', [MobilController::class, 'create'])->name('mobil.create');
+
 });
 
 
