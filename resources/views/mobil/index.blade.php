@@ -4,7 +4,11 @@
 
 <div class="card mt-4">
     <div class="card-body">
-        <h4 class="card-title">Halaman Data Mobil</h4>
+
+        <div class="d-flex justify-content-between">
+            <h4 class="card-title">Halaman Data Mobil</h4>
+            <a href="{{route('mobil.create')}}" class="btn btn-success">Tambah Mobil</a>
+        </div>
 
         <table class="table table-striped mt-4">
             <!-- header -->
