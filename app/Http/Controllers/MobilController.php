@@ -61,7 +61,13 @@ class MobilController extends Controller
         $data->update($input);
 
         return redirect()->route('mobil.index')->with('success', 'Data berhasil diubah');
+    }
 
+    public function delete($id)
+    {
+        $data = Mobil::find($id); //mencari data sesuai ID yang dipilih.
+        $data->delete(); //menghapus data spesifik
+        return back()->with('success', 'Data berhasil dihapus');
     }
 
 }

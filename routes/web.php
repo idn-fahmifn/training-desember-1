@@ -142,10 +142,19 @@ Route::prefix('mobil')->group(function(){
     // Routing untuk mengubah data yang spesifik 
     Route::put('mobil/{id}', [MobilController::class, 'update'])->name('mobil.update');
 
+    // Routing untuk menghapus data yang spesifik 
+    Route::delete('mobil/{id}', [MobilController::class, 'delete'])->name('mobil.delete');
+
 });
 
+Route::view('tampilan', 'template.template');
 
 
 
 
 
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
