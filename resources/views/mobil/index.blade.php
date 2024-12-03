@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Halaman data mobil</h1>
-    <a href="">Tambah Mobil Baru</a>
+    <a href="{{route('mobil.create')}}">Tambah Mobil Baru</a>
     <table>
         <!-- header -->
         <thead>

@@ -15,9 +15,36 @@ class MobilController extends Controller
         return view('mobil.index', compact('data'));
     }
 
+    // function menampilkan halaman create
     public function create()
     {
         return view('mobil.create');
+    }
+
+    // function untuk menyimpan data.
+    public function store(Request $request)
+    {
+        // validasi data atau aturan mengisi form input
+        $request->validate([
+            'nama_mobil' => 'required|string|min:4|max:15',
+            'tipe' => 'required',
+            'tahun_produksi' => 'required|min:4|max:4',
+            'jumlah_unit' => 'required|min:0'
+        ]);
+
+        // kirim data request ke dalam database
+        $input = $request->all();
+        Mobil::create($input);
+
+        // jika berhasil, akan dilanjutkan ke halaman index
+        return redirect()->route('mobil.index')->with('success', 'Data berhasil dibuat');
+    }
+
+    public function detail($id)
+    {
+        // memanggil data yang sama sesuai dengan baris yang diambil.
+        $data = Mobil::find($id);
+        return $data;
     }
 
 }

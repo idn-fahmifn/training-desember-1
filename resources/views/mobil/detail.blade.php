@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Data Mobil</title>
+    <title>Detail Mobil</title>
 </head>
 
 <body>
-    <h1>Tambah Data Mobil</h1>
-    <form action="{{route('mobil.store')}}" method="post">
+    <h1>Edit Mobil</h1>
+    <form action="#" method="post">
         @csrf
         <div class="form-group">
             <label>Nama Mobil</label>
