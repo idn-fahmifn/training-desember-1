@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BioController;
+use App\Http\Controllers\BiodataController;
+use App\Http\Controllers\MobilController;
 use App\Http\Middleware\CekUmur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -115,6 +118,16 @@ Route::get('barang/create', [BarangController::class, 'create'])->name('barang.c
 // Routing untuk memproses data (mengirim)
 Route::post('barang-post', [BarangController::class, 'store'])->name('barang.store');
 
+/**
+ * Memanggil routing resource controller
+ * jika memanggil routing resource, jangan berikan name
+ */
+Route::resource('biodata', BioController::class);
+
+// area route mobil
+Route::prefix('mobil')->group(function(){
+    Route::get('mobil', [MobilController::class, 'index'])->name('mobil.index');
+});
 
 
 

@@ -10,7 +10,7 @@
 <body>
     <h1>Tambah Data Barang</h1>
 
-    <form action="{{route('barang.store')}}" method="post">
+    <form action="{{route('biodata.store')}}" method="post">
         @csrf
         <div class="form-group">
             <label>Nama Barang</label>
